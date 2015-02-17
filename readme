@@ -1,0 +1,2 @@
+# PCMsolver
+Solver for the Open Source finite volume code OpenFOAM, which solves melting problems using the enthalpy-porosity method.
