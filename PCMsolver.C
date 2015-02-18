@@ -22,26 +22,22 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    buoyantBoussinesqPimpleFoam
+    PCMsolver
 
 Description
-    Transient solver for buoyant, turbulent flow of incompressible fluids
+	Copyright (C) 2015 gonzalosaezm55@gmail.com
 
-    Uses the Boussinesq approximation:
-    \f[
-        rho_{k} = 1 - beta(T - T_{ref})
-    \f]
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, version 3.
 
-    where:
-        \f$ rho_{k} \f$ = the effective (driving) kinematic density
-        beta = thermal expansion coefficient [1/K]
-        T = temperature [K]
-        \f$ T_{ref} \f$ = reference temperature [K]
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-    Valid when:
-    \f[
-        \frac{beta(T - T_{ref})}{rho_{ref}} << 1
-    \f]
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 \*---------------------------------------------------------------------------*/
 #include "OFstream.H"
