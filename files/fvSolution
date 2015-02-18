@@ -1,0 +1,124 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+
+    p_rgh
+    {
+        solver          GAMG;
+        preconditioner  DILU;
+        mergeLevels     1;
+        smoother GaussSeidel;
+        agglomerator faceAreaPair;
+        nCellsInCoarsestLevel 100;
+        tolerance       1e-6;
+        relTol          0.001;
+        nPreSweeps   0;
+        nPostSweeps    2;
+    }
+
+    p_rghFinal
+    {
+        $p_rgh;
+        tolerance       1e-6;
+        relTol          0;
+    }
+
+    /*"(U)"
+    {
+        solver          GAMG;
+        preconditioner  DILU;
+        mergeLevels     1;
+        smoother GaussSeidel;
+        agglomerator faceAreaPair;
+        nCellsInCoarsestLevel 100;
+        tolerance       1e-8;
+        relTol          0.0;
+        nPreSweeps   0;
+        nPostSweeps    2;
+    }*/
+    /*U
+    {
+        type coupled ;
+        solver      cPBiCCCG; 
+        preconditioner  DILU;
+        tolerance (1e-8 1e-8 1e-8);
+            relTol (0 0 0)
+           minIter    2; 
+    }*/
+    "(T|TFinal)"
+    {
+        solver          GAMG;
+        preconditioner  DILU;
+        mergeLevels     1;
+        smoother GaussSeidel;
+        agglomerator faceAreaPair;
+        nCellsInCoarsestLevel 100;
+        tolerance       1e-6;
+        relTol          0.001;
+        minIter         1;
+        nPreSweeps   0;
+        nPostSweeps    2;
+    }   
+}
+
+PIMPLE
+{
+    momentumPredictor no;
+    nOuterCorrectors 150;
+    nCorrectors     3;
+    nNonOrthogonalCorrectors 1;
+    pRefCell        0;
+    pRefValue       0;
+    maxLiquidFractionIteration 150;
+    maxLiquidFractionResidual  1e-05;
+    darcyTermLiquidFractionRelaxFactor 1.0;
+    writeUIntegral 0.0;
+    writeLiquidFraction 1.0;
+    secondsToWriteMyData 2.0;
+    onlyConduction 0.0;
+    residualControl
+    {
+        "(U)"
+        {
+            tolerance       1e-6;
+            relTol 0.001;
+        }
+        "(p_rgh|T)"
+        {
+            tolerance       1e-3;
+            relTol 0.001;
+        }
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+    }
+    equations
+    {
+        U 0.7;
+        p 0.3;
+        "(U|T|k|epsilon|R)" 1;
+        "(U|T|k|epsilon|R)Final" 1;
+    }
+}
+
+// ************************************************************************* //

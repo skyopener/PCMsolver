@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+rho             rho [1 -3 0 0 0 0 0] 1173.4;
+
+//liquid phase
+cpLiquid             cpLiquid [0 2 -2 -1 0 0 0] 1824;
+kappaLiquid         kappaLiquid [1 1 -3 -1 0 0 0] 0.17;
+nu              nu [0 2 -1 0 0 0 0] 3.73e-06;
+
+//solid phase
+cpSolid             cpSolid [0 2 -2 -1 0 0 0] 1990;
+kappaSolid        kappaSolid [1 1 -3 -1 0 0 0] 0.35;
+beta            beta [0 0 0 -1 0 0 0] 5.7e-4;
+
+TSolid              TSolid [0 0 0 1 0 0 0] 300.5;
+TLiquid              TLiquid [0 0 0 1 0 0 0] 301.5;
+Tref		Tref [0 0 0 1 0 0 0] 301;
+
+L               L [0 2 -2 0 0 0 0] 150.4e03;
+darcyTermConstant             DCl [1 -3 -1 0 0 0 0] 1.0e6;
+darcyTermEpsilon             DCs [0 0 0 0 0 0 0] 1e-03;
+
+// ************************************************************************* //
