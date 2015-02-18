@@ -1,0 +1,13 @@
+    fileName casePath = cwd();
+    Info << "casePath: " << casePath << endl;
+    fileName caseName = casePath.name();
+    Info << "caseName: " << caseName << endl;
+    fileName myFile = caseName+ "_"+ "uIntegral.csv"; 
+    fileName myFileLiquidFraction = caseName+ "_"+ "liquidFraction.csv"; 
+    OFstream *myStreamPtr = NULL;
+    OFstream *myStreamPtrLiquid = NULL;
+    myStreamPtr = new OFstream(myFile);
+    *myStreamPtr << 0 <<" "<< 0  << endl;
+    myStreamPtrLiquid = new OFstream(myFileLiquidFraction);
+    *myStreamPtrLiquid << 0 <<" "<< 0  << endl;
+    int n=1;

@@ -1,0 +1,57 @@
+# 1 "options"
+# 1 "<command-line>"
+
+
+
+
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+
+# 17 "/usr/include/stdc-predef.h" 3 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 4 "<command-line>" 2
+# 1 "options"
+EXE_INC = -I../buoyantBoussinesqSimpleFoam -I$(LIB_SRC)/sampling/lnInclude -I$(LIB_SRC)/meshTools/lnInclude -I$(LIB_SRC)/fvOptions/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude -I$(LIB_SRC)/turbulenceModels -I$(LIB_SRC)/turbulenceModels/incompressible/RAS/lnInclude -I$(LIB_SRC)/transportModels -I$(LIB_SRC)/transportModels/incompressible/singlePhaseTransportModel -I$(LIB_SRC)/thermophysicalModels/radiationModels/lnInclude
+# 12 "options"
+
+EXE_LIBS = -lfiniteVolume -lfvOptions -lsampling -lmeshTools -lincompressibleTurbulenceModel -lincompressibleRASModels -lincompressibleTransportModels -lradiationModels

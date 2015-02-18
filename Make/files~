@@ -1,0 +1,5 @@
+PCMsolverConvective.C
+
+EXE = $(FOAM_USER_APPBIN)/PCMsolverConvective
+
+
